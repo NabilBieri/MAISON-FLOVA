@@ -35,10 +35,9 @@
   .btn-nav:hover { background: var(--walnut); }
 
   /* ── HERO ── */
-  .hero { position: relative; height: 93vh; min-height: 620px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; }
+  .hero { position: relative; height: 100vh; min-height: 700px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; }
   .hero-img { position: relative; overflow: hidden; }
-  .hero-img-inner { position: absolute; inset: 0; background-image: url('images/accueil.jpg'); background-size: cover; background-position: center top; transform: scale(1.04); animation: zoomout 8s ease forwards; }
-  @keyframes zoomout { from { transform: scale(1.04); } to { transform: scale(1); } }
+  .hero-img-inner { position: absolute; inset: 0; background-image: url('images/accueil.jpg'); background-size: cover; background-position: center center; }
   .hero-left { position: relative; z-index: 2; background: var(--dark); display: flex; flex-direction: column; justify-content: center; padding: 72px 64px; }
   .hero-content { animation: fadeup .9s .3s both; }
   @keyframes fadeup { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
@@ -271,8 +270,8 @@
   <div class="section-header reveal">
     <span class="section-tag">Portfolio</span>
     <div class="divider"></div>
-    <h2 class="section-title">Nos réalisations<br><em>chez nos clients</em></h2>
-    <p class="section-sub">Chaque projet est unique. Voici quelques intérieurs transformés grâce aux rideaux vague MAISON FLOVA.</p>
+    <h2 class="section-title">Nos <em>réalisations</em></h2>
+    <p class="section-sub"><strong>Chaque projet est unique. Voici quelques intérieurs transformés grâce aux rideaux vagues MAISON FLOVA.</strong></p>
   </div>
   <div class="grid-real">
     <div class="item reveal">
@@ -346,47 +345,34 @@
     <span class="section-tag">Tarifs</span>
     <div class="divider"></div>
     <h2 class="section-title">Nos <em>formules</em></h2>
-    <p class="section-sub">Des prix clairs pour chaque besoin. Devis précis et personnalisé sur demande.</p>
+    <p class="section-sub">Deux formules claires, adaptées à vos besoins. Devis précis et personnalisé sur demande.</p>
   </div>
-  <div class="formules-grid">
+  <div class="formules-grid" style="grid-template-columns: 1fr 1fr; max-width: 800px; margin: 64px auto 0;">
     <div class="formule reveal">
-      <span class="formule-tag">Essentiel</span>
-      <h3>Fourniture</h3>
+      <span class="formule-tag">Formule 1</span>
+      <h3>Confection</h3>
       <div class="formule-price">Sur devis</div>
       <span class="formule-unit">Tissu + rail + confection</span>
       <ul>
+        <li>Prise de mesures à domicile</li>
         <li>Tissu vague sur mesure</li>
         <li>Rail et crochets pré-espacés</li>
-        <li>Confection rapide</li>
         <li>Livraison à domicile</li>
       </ul>
       <a href="#devis" class="btn-formule">Demander un devis</a>
     </div>
     <div class="formule featured reveal">
-      <span class="formule-tag">Le plus populaire</span>
-      <h3>Clé en main</h3>
+      <span class="formule-tag">Formule 2 · La plus populaire</span>
+      <h3>Confection + Pose</h3>
       <div class="formule-price">Sur devis</div>
-      <span class="formule-unit">Tout inclus · Pose comprise</span>
+      <span class="formule-unit">Tout inclus · Clé en main</span>
       <ul>
-        <li>Visite & prise de mesures</li>
+        <li>Prise de mesures à domicile</li>
         <li>Tissu vague sur mesure</li>
         <li>Rail, crochets, fixations</li>
-        <li>Pose à domicile</li>
+        <li>Pose professionnelle à domicile</li>
       </ul>
       <a href="#devis" class="btn-formule">Demander un devis</a>
-    </div>
-    <div class="formule reveal">
-      <span class="formule-tag">Professionnel</span>
-      <h3>Projet complet</h3>
-      <div class="formule-price">Sur devis</div>
-      <span class="formule-unit">Multi-pièces · Délais adaptés</span>
-      <ul>
-        <li>Plusieurs pièces ou biens</li>
-        <li>Conseil en décoration</li>
-        <li>Gestion de projet</li>
-        <li>Tarif volume</li>
-      </ul>
-      <a href="#devis" class="btn-formule">Nous contacter</a>
     </div>
   </div>
 </section>
@@ -463,7 +449,7 @@
     <h2>Un projet ?<br>Parlons-en <em>ensemble.</em></h2>
     <p>Devis gratuit et sans engagement. Réponse sous 24h.</p>
     <div class="devis-contact">
-      <div class="contact-line"><span>📞</span><span>06 95 80 84 85</span></div>
+      <div class="contact-line"><span>📞</span><span>+33 6 95 80 84 85</span></div>
       <div class="contact-line"><span>📧</span><span>contact@maisonflova.fr</span></div>
       <div class="contact-line"><span>🕐</span><span>Réponse sous 24h</span></div>
     </div>
