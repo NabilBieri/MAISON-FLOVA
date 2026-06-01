@@ -35,19 +35,21 @@
   .btn-nav:hover { background: var(--walnut); }
 
   /* ── HERO ── */
-  .hero { position: relative; height: 93vh; min-height: 620px; overflow: hidden; display: flex; align-items: flex-end; }
-  .hero-img { position: absolute; inset: 0; background-image: url('images/accueil.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: var(--dark); }
+  .hero { position: relative; height: 93vh; min-height: 620px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; }
+  .hero-img { position: relative; overflow: hidden; }
+  .hero-img-inner { position: absolute; inset: 0; background-image: url('images/accueil.jpg'); background-size: cover; background-position: center top; transform: scale(1.04); animation: zoomout 8s ease forwards; }
   @keyframes zoomout { from { transform: scale(1.04); } to { transform: scale(1); } }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(20,14,10,.72) 0%, rgba(20,14,10,.18) 55%, transparent 100%); }
-  .hero-content { position: relative; z-index: 2; padding: 0 80px 72px; max-width: 760px; animation: fadeup .9s .3s both; }
+  .hero-left { position: relative; z-index: 2; background: var(--dark); display: flex; flex-direction: column; justify-content: center; padding: 72px 64px; }
+  .hero-content { animation: fadeup .9s .3s both; }
   @keyframes fadeup { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
-  .hero-trust { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 8px 16px; }
+  .hero-trust { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 28px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 8px 16px; }
   .hero-stars { color: var(--warm); font-size: 13px; letter-spacing: 2px; }
   .hero-trust-text { font-size: 11px; color: rgba(255,255,255,0.7); letter-spacing: 1px; font-weight: 300; }
-  .hero-tag { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--warm); margin-bottom: 18px; font-weight: 400; margin-top: 16px; }
-  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(42px,6vw,76px); font-weight: 300; color: #fff; line-height: 1.1; margin-bottom: 22px; }
+  .hero-tag { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--warm); margin-bottom: 20px; font-weight: 400; }
+  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 4.5vw, 82px); font-weight: 300; color: #fff; line-height: 1.05; margin-bottom: 24px; }
   .hero-title em { font-style: italic; color: var(--warm); }
-  .hero-sub { font-size: 14px; color: rgba(255,255,255,.72); line-height: 1.7; margin-bottom: 38px; font-weight: 300; max-width: 480px; }
+  .hero-sub { font-size: 14px; color: rgba(255,255,255,.65); line-height: 1.75; margin-bottom: 40px; font-weight: 300; max-width: 400px; }
+  .hero-overlay { display: none; }
   .btn-primary { display: inline-block; background: var(--warm); color: var(--dark); padding: 15px 36px; font-size: 10.5px; letter-spacing: 2.5px; text-transform: uppercase; text-decoration: none; font-family: 'Jost', sans-serif; font-weight: 500; transition: background .3s; }
   .btn-primary:hover { background: #fff; }
   .btn-secondary { display: inline-block; border: 1px solid rgba(255,255,255,.4); color: rgba(255,255,255,.85); padding: 15px 36px; font-size: 10.5px; letter-spacing: 2.5px; text-transform: uppercase; text-decoration: none; font-family: 'Jost', sans-serif; font-weight: 300; margin-left: 16px; transition: .3s; }
@@ -194,7 +196,9 @@
   @media (max-width: 768px) {
     nav { padding: 0 20px; }
     .nav-links { display: none; }
-    .hero-content { padding: 0 24px 48px; }
+    .hero { grid-template-columns: 1fr; height: auto; }
+    .hero-left { padding: 56px 24px; min-height: 60vh; }
+    .hero-img { height: 50vh; }
     .btn-secondary { display: none; }
     .realisations, .pourquoi, .process, .formules { padding: 64px 20px; }
     .grid-real { grid-template-columns: 1fr 1fr; }
@@ -233,18 +237,20 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-img"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-trust">
-      <span class="hero-stars">★★★★★</span>
-      <span class="hero-trust-text">4,9/5 sur nos premières installations</span>
+  <div class="hero-left">
+    <div class="hero-content">
+      <div class="hero-trust">
+        <span class="hero-stars">★★★★★</span>
+        <span class="hero-trust-text">4,9/5 sur nos premières installations</span>
+      </div>
+      <p class="hero-tag">Rideaux sur mesure</p>
+      <h1 class="hero-title">Le tombé parfait,<br><em>pensé pour</em><br>votre intérieur.</h1>
+      <p class="hero-sub">Confection sur mesure, pose à domicile et finitions premium.</p>
+      <a href="#devis" class="btn-primary">Habiller mon intérieur</a>
     </div>
-    <p class="hero-tag">Rideaux sur mesure</p>
-    <h1 class="hero-title">Le tombé parfait,<br><em>pensé pour</em><br>votre intérieur.</h1>
-    <p class="hero-sub">Confection sur mesure, pose à domicile et finitions premium.</p>
-    <a href="#devis" class="btn-primary">Habiller mon intérieur</a>
-    <a href="#realisations" class="btn-secondary">Voir les réalisations</a>
+  </div>
+  <div class="hero-img">
+    <div class="hero-img-inner"></div>
   </div>
 </section>
 
