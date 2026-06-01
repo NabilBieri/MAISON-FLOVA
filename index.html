@@ -36,7 +36,7 @@
 
   /* ── HERO ── */
   .hero { position: relative; height: 93vh; min-height: 620px; overflow: hidden; display: flex; align-items: flex-end; }
-  .hero-img { position: absolute; inset: 0; background-image: url('images/apres-2.jpg.JPG'); background-size: cover; background-position: center; transform: scale(1.04); animation: zoomout 8s ease forwards; }
+  .hero-img { position: absolute; inset: 0; background-image: url('images/accueil.jpg'); background-size: cover; background-position: center; transform: scale(1.04); animation: zoomout 8s ease forwards; }
   @keyframes zoomout { from { transform: scale(1.04); } to { transform: scale(1); } }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(20,14,10,.72) 0%, rgba(20,14,10,.18) 55%, transparent 100%); }
   .hero-content { position: relative; z-index: 2; padding: 0 80px 72px; max-width: 760px; animation: fadeup .9s .3s both; }
@@ -270,32 +270,33 @@
   </div>
   <div class="grid-real">
     <div class="item reveal">
-      <img src="images/apres-2.jpg.JPG" alt="Salon voilage crème">
-      <div class="item-label">Salon · Voilage crème</div>
+      <img src="images/realisation-1.jpg" alt="Réalisation FLOVA">
+      <div class="item-label">Salon · Voilage lin</div>
     </div>
     <div class="item reveal">
-      <img src="images/apres-1.jpg.JPG" alt="Salle à manger lin naturel">
-      <div class="item-label">Salle à manger · Lin naturel</div>
+      <img src="images/realisation-2.jpg" alt="Réalisation FLOVA">
+      <div class="item-label">Chambre · Sur mesure</div>
     </div>
     <div class="item reveal">
-      <img src="images/realisation-1.jpg.JPG" alt="Salon pleine hauteur">
+      <img src="images/realisation-3.jpg" alt="Réalisation FLOVA">
       <div class="item-label">Salon · Pleine hauteur</div>
     </div>
     <div class="item reveal">
-      <img src="images/avant-1.jpg.JPG" alt="Salle à manger vue jour">
-      <div class="item-label">Salle à manger · Vue jour</div>
+      <img src="images/realisation-4.jpg" alt="Réalisation FLOVA">
+      <div class="item-label">Intérieur · Vague premium</div>
     </div>
     <div class="item reveal">
-      <img src="images/avant-2.jpg.JPG" alt="Salon rail vague">
-      <div class="item-label">Salon · Rail vague</div>
+      <img src="images/apres-1.jpg" alt="Réalisation FLOVA">
+      <div class="item-label">Salle à manger · Lin naturel</div>
     </div>
-    <div class="item reveal" style="background: var(--sand); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
-      <span style="font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:300;">Bientôt</span>
+    <div class="item reveal">
+      <img src="images/apres-2.jpg" alt="Réalisation FLOVA">
+      <div class="item-label">Salon · Voilage crème</div>
     </div>
   </div>
 </section>
 
-<!-- SLIDER AVANT / APRES -->
+<!-- SLIDER AVANT / APRES 1 -->
 <section class="slider-section" id="avantapres">
   <div class="slider-header reveal">
     <span class="section-tag" style="color:var(--warm)">Transformation</span>
@@ -303,17 +304,33 @@
     <h2 class="section-title" style="color:#fff">Avant & <em>après</em></h2>
     <p class="section-sub" style="color:var(--muted)">Faites glisser pour découvrir la transformation.</p>
   </div>
-  <div class="slider-wrap" id="sliderWrap">
+  <div class="slider-wrap" id="sliderWrap1">
     <div class="slider-label before">Sans FLOVA</div>
     <div class="slider-label after">Avec FLOVA</div>
     <div class="img-before-wrap">
-      <img src="images/avant-1.jpg.JPG" alt="Avant FLOVA">
+      <img src="images/avant-1.jpg" alt="Avant FLOVA">
     </div>
-    <div class="img-after-wrap" id="afterWrap">
-      <img src="images/apres-1.jpg.JPG" alt="Après FLOVA">
+    <div class="img-after-wrap" id="afterWrap1">
+      <img src="images/apres-1.jpg" alt="Après FLOVA">
     </div>
-    <div class="slider-handle" id="sliderHandle">⇔</div>
-    <input type="range" min="0" max="100" value="50" class="comparison-slider" id="compSlider">
+    <div class="slider-handle" id="sliderHandle1">⇔</div>
+    <input type="range" min="0" max="100" value="50" class="comparison-slider" id="compSlider1">
+  </div>
+</section>
+
+<!-- SLIDER AVANT / APRES 2 -->
+<section class="slider-section">
+  <div class="slider-wrap" id="sliderWrap2">
+    <div class="slider-label before">Sans FLOVA</div>
+    <div class="slider-label after">Avec FLOVA</div>
+    <div class="img-before-wrap">
+      <img src="images/avant-2.jpg" alt="Avant FLOVA">
+    </div>
+    <div class="img-after-wrap" id="afterWrap2">
+      <img src="images/apres-2.jpg" alt="Après FLOVA">
+    </div>
+    <div class="slider-handle" id="sliderHandle2">⇔</div>
+    <input type="range" min="0" max="100" value="50" class="comparison-slider" id="compSlider2">
   </div>
 </section>
 
@@ -573,19 +590,22 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 
-  // ── SLIDER ──
-  const compSlider   = document.getElementById('compSlider');
-  const afterWrap    = document.getElementById('afterWrap');
-  const sliderHandle = document.getElementById('sliderHandle');
-
-  function moveSlider() {
-    const val = compSlider.value;
-    afterWrap.style.width        = val + '%';
-    sliderHandle.style.left      = val + '%';
-    sliderHandle.style.transform = 'translate(-50%, -50%)';
+  // ── SLIDERS ──
+  function initSlider(sliderId, afterWrapId, handleId) {
+    const slider = document.getElementById(sliderId);
+    const wrap   = document.getElementById(afterWrapId);
+    const handle = document.getElementById(handleId);
+    function move() {
+      const val = slider.value;
+      wrap.style.width        = val + '%';
+      handle.style.left       = val + '%';
+      handle.style.transform  = 'translate(-50%, -50%)';
+    }
+    slider.addEventListener('input', move);
+    move();
   }
-  compSlider.addEventListener('input', moveSlider);
-  moveSlider();
+  initSlider('compSlider1', 'afterWrap1', 'sliderHandle1');
+  initSlider('compSlider2', 'afterWrap2', 'sliderHandle2');
 
   // ── FORMSPREE ──
   const form = document.getElementById('contactForm');
