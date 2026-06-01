@@ -36,7 +36,7 @@
 
   /* ── HERO ── */
   .hero { position: relative; height: 93vh; min-height: 620px; overflow: hidden; display: flex; align-items: flex-end; }
-  .hero-img { position: absolute; inset: 0; background-image: url('images/accueil.jpg'); background-size: cover; background-position: center; transform: scale(1.04); animation: zoomout 8s ease forwards; }
+  .hero-img { position: absolute; inset: 0; background-image: url('images/accueil.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: var(--dark); }
   @keyframes zoomout { from { transform: scale(1.04); } to { transform: scale(1); } }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(20,14,10,.72) 0%, rgba(20,14,10,.18) 55%, transparent 100%); }
   .hero-content { position: relative; z-index: 2; padding: 0 80px 72px; max-width: 760px; animation: fadeup .9s .3s both; }
@@ -78,16 +78,16 @@
   .grid-real .item:hover .item-label { opacity: 1; transform: translateY(0); }
 
   /* ── SLIDER ── */
-  .slider-section { background: var(--dark); }
+  .slider-section { background: var(--dark); padding: 0 0 16px; }
   .slider-header { padding: 72px 56px 48px; text-align: center; }
-  .slider-wrap { position: relative; width: 100%; aspect-ratio: 9/16; max-height: 95vh; overflow: hidden; cursor: ew-resize; user-select: none; }
-  .slider-label { position: absolute; top: 24px; padding: 8px 16px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; z-index: 5; }
-  .slider-label.before { left: 24px; background: rgba(28,23,18,.8); color: var(--sand); }
-  .slider-label.after  { right: 24px; background: var(--walnut); color: #fff; }
+  .slider-wrap { position: relative; width: 420px; max-width: 88vw; aspect-ratio: 3/4; margin: 0 auto 16px; overflow: hidden; cursor: ew-resize; user-select: none; display: block; }
+  .slider-label { position: absolute; top: 16px; padding: 6px 12px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; z-index: 5; }
+  .slider-label.before { left: 16px; background: rgba(28,23,18,.8); color: var(--sand); }
+  .slider-label.after  { right: 16px; background: var(--walnut); color: #fff; }
   .img-before-wrap { position: absolute; inset: 0; }
   .img-before-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
   .img-after-wrap { position: absolute; top: 0; left: 0; height: 100%; width: 50%; overflow: hidden; border-right: 2px solid rgba(255,255,255,.6); }
-  .img-after-wrap img { height: 100%; width: 100vw; max-width: none; object-fit: cover; object-position: center; display: block; }
+  .img-after-wrap img { height: 100%; width: 420px; max-width: none; object-fit: cover; object-position: center; display: block; }
   .slider-handle { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 44px; height: 44px; background: #fff; border-radius: 50%; z-index: 10; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 12px rgba(0,0,0,.3); pointer-events: none; font-size: 14px; color: var(--dark); font-weight: 500; }
   .comparison-slider { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 20; -webkit-appearance: none; }
 
@@ -275,7 +275,7 @@
     </div>
     <div class="item reveal">
       <img src="images/realisation-2.jpg" alt="Réalisation FLOVA">
-      <div class="item-label">Chambre · Sur mesure</div>
+      <div class="item-label">Salon · Sur mesure</div>
     </div>
     <div class="item reveal">
       <img src="images/realisation-3.jpg" alt="Réalisation FLOVA">
