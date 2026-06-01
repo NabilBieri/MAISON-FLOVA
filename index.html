@@ -80,14 +80,14 @@
   /* ── SLIDER ── */
   .slider-section { background: var(--dark); }
   .slider-header { padding: 72px 56px 48px; text-align: center; }
-  .slider-wrap { position: relative; width: 100%; height: 560px; overflow: hidden; cursor: ew-resize; user-select: none; }
+  .slider-wrap { position: relative; width: 100%; height: 750px; overflow: hidden; cursor: ew-resize; user-select: none; }
   .slider-label { position: absolute; top: 24px; padding: 8px 16px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; z-index: 5; }
   .slider-label.before { left: 24px; background: rgba(28,23,18,.8); color: var(--sand); }
   .slider-label.after  { right: 24px; background: var(--walnut); color: #fff; }
   .img-before-wrap { position: absolute; inset: 0; }
-  .img-before-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .img-before-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
   .img-after-wrap { position: absolute; top: 0; left: 0; height: 100%; width: 50%; overflow: hidden; border-right: 2px solid rgba(255,255,255,.6); }
-  .img-after-wrap img { height: 100%; width: 100vw; max-width: none; object-fit: cover; display: block; }
+  .img-after-wrap img { height: 100%; width: 100vw; max-width: none; object-fit: cover; object-position: center top; display: block; }
   .slider-handle { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 44px; height: 44px; background: #fff; border-radius: 50%; z-index: 10; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 12px rgba(0,0,0,.3); pointer-events: none; font-size: 14px; color: var(--dark); font-weight: 500; }
   .comparison-slider { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 20; -webkit-appearance: none; }
 
@@ -308,10 +308,10 @@
     <div class="slider-label before">Sans FLOVA</div>
     <div class="slider-label after">Avec FLOVA</div>
     <div class="img-before-wrap">
-      <img src="images/avant-1.jpg" alt="Avant FLOVA">
+      <img src="images/apres-1.jpg" alt="Avant FLOVA">
     </div>
     <div class="img-after-wrap" id="afterWrap1">
-      <img src="images/apres-1.jpg" alt="Après FLOVA">
+      <img src="images/avant-1.jpg" alt="Après FLOVA">
     </div>
     <div class="slider-handle" id="sliderHandle1">⇔</div>
     <input type="range" min="0" max="100" value="50" class="comparison-slider" id="compSlider1">
@@ -324,10 +324,10 @@
     <div class="slider-label before">Sans FLOVA</div>
     <div class="slider-label after">Avec FLOVA</div>
     <div class="img-before-wrap">
-      <img src="images/avant-2.jpg" alt="Avant FLOVA">
+      <img src="images/apres-2.jpg" alt="Avant FLOVA">
     </div>
     <div class="img-after-wrap" id="afterWrap2">
-      <img src="images/apres-2.jpg" alt="Après FLOVA">
+      <img src="images/avant-2.jpg" alt="Après FLOVA">
     </div>
     <div class="slider-handle" id="sliderHandle2">⇔</div>
     <input type="range" min="0" max="100" value="50" class="comparison-slider" id="compSlider2">
