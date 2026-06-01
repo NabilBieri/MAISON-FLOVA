@@ -455,7 +455,10 @@
     </div>
   </div>
   <div class="devis-form reveal">
-    <form id="contactForm" action="https://formspree.io/f/mbdbnrar" method="POST">
+    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="aea1ad4d-6dc5-458e-8464-fb96978af5a4">
+      <input type="hidden" name="subject" value="Nouvelle demande de devis — Maison FLOVA">
+      <input type="hidden" name="redirect" value="false">
       <div class="form-row">
         <div class="form-group"><label>Prénom</label><input type="text" name="prenom" placeholder="Marie" required></div>
         <div class="form-group"><label>Nom</label><input type="text" name="nom" placeholder="Dupont" required></div>
@@ -599,17 +602,17 @@
   initSlider('compSlider1', 'afterWrap1', 'sliderHandle1');
   initSlider('compSlider2', 'afterWrap2', 'sliderHandle2');
 
-  // ── FORMSPREE ──
+  // ── FORMULAIRE WEB3FORMS ──
   const form = document.getElementById('contactForm');
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
     const data = new FormData(form);
-    const response = await fetch(form.action, {
+    const response = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
+      body: data
     });
-    if (response.ok) {
+    const result = await response.json();
+    if (result.success) {
       form.style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
     }
