@@ -27,8 +27,7 @@
 
   /* ── NAV ── */
   nav { position: sticky; top: 0; z-index: 100; background: rgba(245,240,232,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--sand); display: flex; align-items: center; justify-content: space-between; padding: 0 56px; height: 74px; }
-  .nav-logo { display: flex; align-items: center; text-decoration: none; }
-  .nav-logo img { height: 44px; width: auto; }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; letter-spacing: 6px; text-transform: uppercase; color: var(--dark); text-decoration: none; }
   .nav-links { display: flex; gap: 40px; list-style: none; }
   .nav-links a { font-size: 10.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--text); text-decoration: none; font-weight: 400; transition: color .3s; }
   .nav-links a:hover { color: var(--walnut); }
@@ -224,7 +223,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo"><img src="images/logo.png" alt="Maison FLOVA"></a>
+  <a href="#" class="nav-logo">Maison Flova</a>
   <ul class="nav-links">
     <li><a href="#realisations">Réalisations</a></li>
     <li><a href="#formules">Nos formules</a></li>
@@ -603,7 +602,7 @@
   initSlider('compSlider1', 'afterWrap1', 'sliderHandle1');
   initSlider('compSlider2', 'afterWrap2', 'sliderHandle2');
 
-  // ── ANIMATION CURSEUR SLIDER ──
+  // ── ANIMATION CURSEUR SLIDER PREMIUM ──
   function animateSliderHint(sliderId, afterWrapId, handleId, wrapId) {
     const slider = document.getElementById(sliderId);
     const wrap   = document.getElementById(afterWrapId);
@@ -612,25 +611,38 @@
     if (!slider || !wrapEl) return;
 
     let hinted = false;
+
+    function smoothTo(from, to, duration, onDone) {
+      const start = performance.now();
+      function step(now) {
+        const t = Math.min((now - start) / duration, 1);
+        // Easing ease-in-out
+        const ease = t < 0.5 ? 2*t*t : -1+(4-2*t)*t;
+        const val = from + (to - from) * ease;
+        slider.value           = val;
+        wrap.style.width       = val + '%';
+        handle.style.left      = val + '%';
+        handle.style.transform = 'translate(-50%, -50%)';
+        if (t < 1) requestAnimationFrame(step);
+        else if (onDone) onDone();
+      }
+      requestAnimationFrame(step);
+    }
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && !hinted) {
           hinted = true;
           setTimeout(() => {
-            const steps = [50, 30, 70, 50];
-            let i = 0;
-            const interval = setInterval(() => {
-              slider.value           = steps[i];
-              wrap.style.width       = steps[i] + '%';
-              handle.style.left      = steps[i] + '%';
-              handle.style.transform = 'translate(-50%, -50%)';
-              i++;
-              if (i >= steps.length) clearInterval(interval);
-            }, 400);
-          }, 700);
+            // Part de 50 → va à 5 (révèle "avec flova") → revient à 50
+            smoothTo(50, 5, 1200, () => {
+              setTimeout(() => smoothTo(5, 50, 900), 600);
+            });
+          }, 500);
         }
       });
     }, { threshold: 0.5 });
+
     observer.observe(wrapEl);
   }
 
